@@ -1,18 +1,15 @@
 package com.fareyetodo.todo.controller;
 
 import com.fareyetodo.todo.model.ToDo;
-import com.fareyetodo.todo.model.User;
-import org.springframework.scheduling.config.Task;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 
 @RestController
 public class ToDoController {
 
-    HashMap<Integer, ToDo> tasks = new HashMap<Integer, ToDo>();
+    public static HashMap<Integer, ToDo> tasks = new HashMap<Integer, ToDo>();
     int todoId;
 
     @GetMapping("/tasks")
@@ -22,7 +19,7 @@ public class ToDoController {
     }
 
     @PostMapping("/tasks")
-        public HashMap<Integer, ToDo> createTask(@RequestBody ToDo todo1){
+        public HashMap<Integer, ToDo> createTask(@RequestBody @Valid ToDo todo1){
         todo1.setId(todoId);
         tasks.put(todo1.getId(),todo1);
         todoId++;
@@ -47,3 +44,50 @@ public class ToDoController {
         tasks.remove(id);
     }
 }
+
+
+
+
+/*
+
+@RestController
+@RequestMapping("/todo")
+public class ToDoController {
+
+    private final ToDoService todoService;
+
+    @Autowired
+    public ToDoController(ToDoService todoService) {
+        this.todoService = todoService;
+    }
+
+    @GetMapping("/tasks")
+    public List<ToDo> get(){
+        return todoService.todos ;
+    }
+    @PostMapping("/tasks")
+    public List<ToDo> create(@RequestBody @Valid ToDo todo){
+        todoService.todos.add(todo);
+        return todoService.todos;
+    }
+    @PutMapping("/tasks/{id}")
+    public List<ToDo> update(@PathVariable("id") int id, @RequestBody ToDo todo){
+        for(int i=0;i< todoService.todos.size();i++){
+            if(todoService.todos.get(i).getId()==id){
+                todoService.todos.set(i, todo);
+            }
+        }
+        return todoService.todos;
+    }
+
+    @DeleteMapping("/{id}")
+    public List<ToDo> delete(@PathVariable(value = "id") int todoId) {
+        for(int i=0;i< todoService.todos.size();i++){
+            if(todoService.todos.get(i).getId()==todoId){
+                todoService.todos.remove(i);
+            }
+        }
+        return todoService.todos;
+    }
+}
+*/

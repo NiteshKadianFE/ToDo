@@ -1,18 +1,20 @@
 package com.fareyetodo.todo.model;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.fareyetodo.todo.validation.Duplicates;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter @NoArgsConstructor @Duplicates
 public class ToDo {
     private LocalDate createdDate, modifiedDate;
     private String body, title, dueDate;
     private Boolean status;
     private int id;
+    private int userNumber;
+
     public LocalDate getCreatedDate() {
         return LocalDate.now();
     }
