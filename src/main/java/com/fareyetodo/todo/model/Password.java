@@ -11,8 +11,6 @@ public class Password {
 
         this.mySecurePassword = mySecurePassword;
 
-        System.out.println(mySecurePassword);
-        System.out.println(salt);
     }
 
     public String getMySecurePassword() {

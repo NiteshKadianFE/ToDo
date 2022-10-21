@@ -1,2 +1,5 @@
-package com.fareyetodo.todo.controller;public class BeanController {
+package com.fareyetodo.todo.controller;
+
+public class BeanController {
+
 }

@@ -1,2 +1,4 @@
-package com.fareyetodo.todo.model;public class Store {
+package com.fareyetodo.todo.model;
+
+public class Store {
 }
