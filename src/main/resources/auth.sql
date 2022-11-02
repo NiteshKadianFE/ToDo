@@ -1,0 +1,10 @@
+--
+--create table authorities (
+--    username varchar(50) not null,
+--    authority varchar(50) not null,
+--    foreign key (username) references users (firstName)
+--);
+--
+--insert into authorities(username,authority)values('niteshmmm','ROLE_ADMIN');
+--
+--insert into authorities(username,authority)values('niteshk','ROLE_ADMIN');

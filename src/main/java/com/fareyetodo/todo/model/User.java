@@ -3,20 +3,28 @@ package com.fareyetodo.todo.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 
 @Getter @Setter
+@Entity
+@Table(name = "users")
 public class User {
     private String firstName;
     private String lastName;
+    private String username;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String email;
+//    private boolean enabled;
 //    private String avatarUrl;
 //    private String githubUserName;
 //
 //    private String gitAvatar;
 //    private Boolean verified, created, modified;
 //
-//    private String password, mySecurePassword;
+    private String password, mySecurePassword;
 
 //    public User()
 //    {
@@ -33,5 +41,12 @@ public class User {
 //    private Boolean active;
     private String role;
 
+    public User() {
 
+    }
+
+    public User(String firstName, int id) {
+        this.firstName = firstName;
+        this.id = id;
+    }
 }

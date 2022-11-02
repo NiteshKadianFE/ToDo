@@ -1,13 +1,12 @@
 package com.fareyetodo.todo.validation;
 
-import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
 @Target( {ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = DupVal.class)
+//@Constraint(validatedBy = DupVal.class)
 public @interface Duplicates {
     public String message() default "Same Title already exists";
     //represents group of constraints
